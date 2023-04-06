@@ -27,6 +27,26 @@ function getUser(id){
     .catch(error=>console.error(error))
 }
 
+function updateUser(id,userUpdated){
+    axios.put(`${url}/${id}`, userUpdated)
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
+}
+
+const userUpdated = {
+    name : "Leandro Cordeiro",
+    avatar : "https://picsum.photos/200/300",
+    city : "Portugal"
+}
+
+function deleteUser(id){
+    axios.delete(`${url}/${id}`)
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
+}
+
+deleteUser(3)
+updateUser(3, userUpdated)
 getUser(1)
 getUsers()
 
@@ -35,4 +55,4 @@ const newUser={
     avatar:"https://picsum.photos/200/300",
     city:"Portugal"
 }
-addNewUser()
+//addNewUser()
